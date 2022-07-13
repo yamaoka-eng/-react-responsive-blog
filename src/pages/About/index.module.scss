@@ -1,0 +1,55 @@
+.main {
+  @apply w-full p-4;
+  .card {
+    @apply bg-zinc-900 rounded-xl w-full flex flex-col px-5 py-4 text-sm;
+    .coolTitle {
+      @apply flex py-2 mb-3;
+      > code {
+        @apply selection:bg-purple-400 text-xl text-[#24c6dc] rounded-md px-2;
+        background-color: rgba(14,210,247,0.05)
+      }
+    }
+    .personalBg {
+      @apply p-2 rounded-xl mb-10 md:mr-10 md:mb-0;
+      background-color:#a099ff;
+      background-image: 
+        radial-gradient(at 83% 67%, rgb(152, 231, 156) 0, transparent 58%), 
+        radial-gradient(at 67% 20%, hsla(357,94%,71%,1) 0, transparent 59%), 
+        radial-gradient(at 88% 35%, hsla(222,81%,65%,1) 0, transparent 50%), 
+        radial-gradient(at 31% 91%, hsla(9,61%,61%,1) 0, transparent 52%), 
+        radial-gradient(at 27% 71%, hsla(336,91%,65%,1) 0, transparent 49%), 
+        radial-gradient(at 74% 89%, hsla(30,98%,65%,1) 0, transparent 51%), 
+        radial-gradient(at 53% 75%, hsla(174,94%,68%,1) 0, transparent 45%);
+      animation: color-change 6s linear infinite;
+    }
+    p {
+      @apply py-5;
+      strong {
+        @apply bg-clip-text text-transparent text-[#7aa2f7] px-[0.1rem] font-semibold transition-all duration-700 text-base;
+        background-clip: text !important;
+        color: transparent !important;
+        background: linear-gradient(62deg,#87c2fd,#dcb9fc);
+        &:hover {
+          @apply shadow-lg shadow-black scale-125;
+          filter: hue-rotate(540deg);
+        }
+      }
+    }
+    > hr {
+      @apply relative border-0 h-[1px] p-[2.5rem];
+      &::after {
+        @apply content-[''] absolute top-0 left-[50%] translate-x-[-50%] h-[3px] w-[26%] rounded-full opacity-25 my-[2.5em] mx-auto;
+        background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);
+      }
+      &::before {
+        @apply content-['§'] inline-block absolute left-[50%] translate-x-[-50%] translate-y-[-55%] rotate-[60deg] p-[.25rem] z-10 rounded-[60%] bg-zinc-900  text-pink-600 text-base;
+      }
+    }
+  }
+}
+
+@keyframes color-change {
+  from {
+    filter: hue-rotate(360deg);
+  }
+}

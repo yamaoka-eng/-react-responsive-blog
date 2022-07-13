@@ -1,0 +1,97 @@
+.headerContainer {
+  @apply fixed left-0 top-0 flex justify-between px-3 text-white w-full items-center text-center z-[99] py-4 md:py-0;
+  .mobile {
+    @apply md:hidden;
+    .checkbox {
+      @apply hidden;
+    }
+    .navBtn {
+      @apply flex flex-col cursor-pointer md:hidden z-[99] relative;
+      span {
+        @apply w-5 bg-white h-[2px] mt-1 first:mt-0 transition-all ease-out duration-500;
+      }
+    }
+    .checkbox:checked + .navBtn {
+      .line1 {
+        @apply  rotate-[315deg] translate-y-[0.37rem]
+      }
+      .line2 {
+        @apply  -translate-x-2 opacity-0
+      }
+      .line3 {
+        @apply  rotate-[405deg] -translate-y-[0.37rem]
+      }
+    }
+    .mobileNavContainer {
+      @apply fixed left-0 top-0 h-[100vh] w-[100vw] z-50 transition-all duration-500;
+      background-color: rgba($color: #000000, $alpha: 0);
+      visibility: hidden;
+      .mobileNav {
+        @apply w-0 h-[100vh] transition-all duration-500 bg-slate-900 overflow-hidden z-[60] relative;
+        .navContainer {
+          @apply h-full w-full flex flex-col items-end justify-around py-10;
+          .nav {
+            @apply sm:w-2/4 rounded-xl px-6 bg-slate-800 flex-shrink-0 translate-x-2 text-white;
+            >li{
+              a {
+                @apply flex items-center justify-between tracking-[.45em] py-3 border-b-[1px] border-slate-600 last:border-b-0 px-3 select-none cursor-pointer transition-all duration-300;
+                span {
+                  @apply ml-4 mr-5;
+                }
+                > * {
+                  @apply shrink-0;
+                }
+              }
+              &:hover {
+                @apply bg-slate-500
+              }
+            }
+          }
+          .link {
+            @apply flex flex-col items-end justify-around translate-x-2 text-gray-400;
+            >li{
+              @apply mb-8 last:mb-0 select-none cursor-pointer;
+              a {
+                @apply flex items-center py-1 px-6 bg-slate-800 rounded-xl;
+                >svg {
+                  @apply text-white text-xl;
+                }
+                >span {
+                  @apply ml-4;
+                }
+                > * {
+                  @apply shrink-0;
+                }
+              }
+              &:hover {
+                @apply bg-slate-700
+              }
+            }
+          }
+        }
+      }
+    }
+    .checkbox:checked ~ .mobileNavContainer {
+      visibility: visible;
+      background-color: rgba($color: #000000, $alpha: 0.5);
+      .mobileNav {
+        @apply w-3/4 sm:w-2/3 overflow-hidden;
+      }
+    }
+  }
+  h1 {
+    @apply text-xl select-none;
+  }
+  >ul {
+    @apply hidden md:flex text-sm select-none;
+    li a{
+      @apply px-6 py-3 cursor-pointer transition-all duration-300 flex items-center;
+      span {
+        @apply ml-2;
+      }
+      &:hover {
+        @apply bg-opacity-50 bg-slate-500;
+      }
+    }
+  }
+}

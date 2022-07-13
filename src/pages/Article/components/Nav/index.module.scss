@@ -1,0 +1,21 @@
+.categories {
+  @apply flex pl-4 pr-7 my-6 bg-[#212121] items-center rounded-xl text-gray-300 flex-wrap w-full text-sm overflow-hidden transition-all duration-500 relative;
+  li {
+    @apply flex cursor-pointer mx-3 my-3 transition-opacity duration-500;
+    &:first-child {
+      @apply py-2 px-[1.5rem] rounded-md;
+      background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);
+    }
+    &:hover {
+      @apply opacity-40;
+    }
+    > span {
+      &:first-child {
+        @apply px-3 py-2 bg-[#1a1a1a] rounded-l-md;
+      }
+      &:last-child {
+        @apply px-3 py-2 bg-[#1a1a1a] bg-opacity-70 rounded-r-md text-[#24c6dc];
+      }
+    }
+  }
+}

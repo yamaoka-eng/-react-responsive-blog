@@ -1,0 +1,27 @@
+.App {
+  @apply w-full h-full
+}
+
+$main-gradient:linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);
+$text-gradient:radial-gradient(at 4% 36%, hsla(0,0%,100%,1) 0, transparent 53%), radial-gradient(at 100% 60%, rgb(0, 0, 0) 0, transparent 50%);
+
+.cool-title {
+  @apply relative;
+  &::after {
+    @apply rounded-full h-[.25rem] absolute left-0 bottom-0 w-[6rem] content-[''];
+    background: $main-gradient;
+  }
+}
+
+.text-gradient {
+  background-color: #fff;
+  background-image: $text-gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes color-change {
+  from {
+    filter: hue-rotate(360deg);
+  }
+}

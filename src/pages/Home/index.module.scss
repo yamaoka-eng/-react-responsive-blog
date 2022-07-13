@@ -1,0 +1,98 @@
+.homeContainer {
+  @apply relative w-full overflow-x-hidden overflow-hidden bg-white;
+  .homeBg {
+    @apply z-[1] w-full h-[100vh] relative;
+  }
+  .welcomeText {
+    @apply absolute top-1/2 left-1/2 text-center -translate-y-1/2 -translate-x-1/2 text-white text-xl font-semibold z-10;
+  }
+  .down {
+    @apply absolute left-1/2 bottom-20 -translate-x-1/2 text-4xl animate-bounce;
+    animation: bounce 1s infinite;
+  }
+  .previewOverlay {
+    width: 100%;
+    z-index: 2;
+    --gentle-wave1: rgba(36, 198, 220, 0.7);
+    --gentle-wave2: rgba(84, 51, 255, 0.5);
+    --gentle-wave3: rgba(255, 0, 153, 0.3);
+    --gentle-wave: #fff;
+    animation: color-change 6s linear infinite;
+    & .previewWaves {
+      @apply relative w-full h-[40px] md:h-0 mb-[-8px] min-h-[40px] md:min-h-[100px] max-h-[150px];
+    }
+    & .previewParallax>use {
+      animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+    }
+    & .previewParallax>use:nth-child(1) {
+      animation-delay: -2s;
+      animation-duration: 7s;
+    }
+    & .previewParallax>use:nth-child(2) {
+      animation-delay: -3s;
+      animation-duration: 10s;
+    }
+    & .previewParallax>use:nth-child(3) {
+      animation-delay: -4s;
+      animation-duration: 13s;
+    }
+    & .previewParallax>use:nth-child(4) {
+      animation-delay: -5s;
+      animation-duration: 20s;
+    }
+  }
+  .main {
+    @apply w-[80%] m-auto py-10 grid auto-rows-min gap-[1rem] grid-flow-dense grid-cols-5;
+    > div {
+      @apply rounded-md shadow-lg border border-gray-100 shadow-gray-700 hover:scale-105 transition-all duration-700;
+    }
+    .fullbar {
+      @apply col-span-full h-60;
+    }
+    .longbar {
+      @apply col-span-full md:col-span-3 h-72;
+    }
+    .shortbar {
+      @apply col-span-full md:col-span-2 h-40;
+    }
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateX(-50%) translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8,0,1,1);
+  }
+  50% {
+    transform: translateX(-50%);
+    animation-timing-function: cubic-bezier(0,0,0.2,1);
+  }
+}
+
+.cursorFlicker {
+  animation: flicker 1s infinite
+}
+
+@keyframes flicker {
+  60% {
+    opacity: 1
+  }
+  100% {
+    opacity: 0.2
+  }
+}
+
+@keyframes color-change {
+  from {
+    filter: hue-rotate(360deg);
+  }
+}
+
+@keyframes move-forever {
+  0% {
+      transform: translate3d(-90px, 0, 0);
+  }
+  100% {
+      transform: translate3d(85px, 0, 0);
+  }
+}

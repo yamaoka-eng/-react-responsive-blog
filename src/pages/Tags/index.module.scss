@@ -1,0 +1,25 @@
+.tagTitle {
+  @apply text-5xl font-medium mb-10 text-white;
+  text-shadow: .3rem .6rem 1rem rgba(#fff, .2);
+}
+
+.tags {
+  @apply flex px-6 py-20 my-6 bg-[#212121] items-center rounded-xl text-gray-300 flex-wrap w-full text-base overflow-hidden transition-all duration-500 relative;
+  li {
+    @apply flex cursor-pointer mx-3 my-3 transition-opacity duration-500;
+    &:hover {
+      @apply opacity-40;
+    }
+    > span {
+      &:first-child {
+        @apply px-3 py-2 bg-[#1a1a1a] rounded-l-md;
+        > span {
+          @apply text-gray-400;
+        }
+      }
+      &:last-child {
+        @apply px-3 py-2 bg-[#1a1a1a] bg-opacity-70 rounded-r-md text-[#ff0099];
+      }
+    }
+  }
+}
