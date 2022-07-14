@@ -22,16 +22,14 @@ export const lazyLoad = component => {
   )
 }
 
-export const getImage = imgUrl => {
-  return new URL(`/src/assets/${imgUrl}`, import.meta.url).href
-}
+export const getImage = imgUrl => new URL(`/src/assets/${imgUrl}`, import.meta.url).href
 
 export const PrestrainLocalImg = ({ imgUrl }) => {
   const [loadingOk, setLoadingOk] = useState(false)
 
   useEffect(()=>{
     var image = new Image()
-    image.src = `/src/assets/${imgUrl}`
+    image.src = getImage(imgUrl)
     image.onload = () => setLoadingOk(true)
   }, [])
 
@@ -49,7 +47,7 @@ export const LazyImage = ({ imgUrl, style }) => {
       entries.forEach(item => {
         if (item.intersectionRatio <= 0) return
         var image = new Image()
-        image.src = `/src/assets/${imgUrl}`
+        image.src = getImage(imgUrl)
         image.onload = () => setLoadingOk(true)
       })
     }, { threshold: [ 0.1 ] })
