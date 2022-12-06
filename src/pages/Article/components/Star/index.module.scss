@@ -1,0 +1,32 @@
+.main {
+  @apply h-[271px] w-full bg-[#10131b] flex flex-col items-center;
+  .starBg {
+    @apply h-[300px] min-h-[300px] w-full max-w-[1200px] relative flex justify-center items-start overflow-hidden;
+    background: url(/src/assets/BGstarBig.png) no-repeat center center;
+    .star {
+      @apply w-[373px] h-[269px] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]
+    }
+    .supe {
+      @apply absolute w-[180px] h-[88px] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]
+    }
+    img {
+      @apply transition-all duration-500 ease-out;
+      -webkit-user-drag: none;
+    }
+  }
+  @media (max-width: 800px) {
+    @apply bg-transparent h-[240px] bg-none;
+    .starBg {
+      @apply h-[100%] w-[100%] max-w-[100%] min-w-[100%] max-h-[100%] min-h-[100%] items-start;
+      background: url(/src/assets/BGstarSmall.png) no-repeat center center;
+      background-size: 100% 100%;
+      .star {
+        @apply w-[250px] h-[180px];
+      }
+      .supe {
+        @apply w-[120px] h-[59px];
+      }
+    }
+  }
+}
+

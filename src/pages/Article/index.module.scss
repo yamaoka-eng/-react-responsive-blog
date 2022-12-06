@@ -1,0 +1,33 @@
+.container {
+  @apply gap-[3rem] justify-items-center justify-center items-center content-center py-4 rounded-xl;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem,1fr));
+  grid-auto-rows: 36rem;
+  .card {
+    @apply relative font-bold text-xl w-full h-full;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    .front {
+      @apply bg-orange-500 absolute top-0 left-0 w-full h-full transition-transform duration-700 ease-out shadow-lg shadow-gray-900 flex flex-col items-center justify-center rounded-lg;
+      backface-visibility: hidden;
+      transform-style: preserve-3d;
+    }
+    .back {
+      @apply bg-slate-500 absolute top-0 left-0 w-full h-full transition-transform duration-700 ease-out shadow-lg shadow-gray-900 flex flex-col justify-center items-center rounded-lg cursor-pointer;
+      transform: rotateY(-180deg);
+      backface-visibility: hidden;
+      transform-style: preserve-3d;
+    }
+    span {
+      transform: translateZ(70px);
+    }
+    &:hover {
+      .front {
+        transform: rotateY(180deg);
+      }
+      .back {
+        transform: rotateY(0deg);
+      }
+    }
+  }
+}

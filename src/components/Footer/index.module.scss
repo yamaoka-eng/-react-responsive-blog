@@ -1,0 +1,44 @@
+.footer {
+  @apply w-full pt-2 pb-4 bg-gray-800 text-center flex flex-col justify-around items-center text-sm relative mt-1;
+  .text {
+    @apply w-full flex flex-col md:flex-row justify-around items-center;
+    .support {
+      @apply md:border-t-[1px] border-gray-500 py-2 tracking-[0.05rem];
+      ul {
+        @apply flex;
+        > li {
+          @apply px-4 py-1 cursor-pointer select-none bg-gray-800 transition-all duration-300 mr-2 last:mr-0;
+          &:hover {
+            @apply -rotate-[20deg] scale-110 text-green-500 shadow-lg shadow-black;
+          }
+        }
+      }
+    }
+    .copyright {
+      @apply border-t-[1px] border-gray-500 py-2 px-4 tracking-[0.1rem];
+      .rotate {
+        @apply transition-all duration-300;
+      }
+      .rotate:hover {
+        @apply text-green-500 shadow-lg shadow-black;
+      }
+    }
+  }
+  &::after {
+    content: '';
+    background: linear-gradient(130deg, rgb(36, 198, 220), rgb(84, 51, 255) 41.07%, rgb(255, 0, 153) 76.05%);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: -0.25rem;
+    z-index: -1;
+    animation: color-change 6s linear infinite;
+  }
+}
+
+
+@keyframes color-change {
+  from {
+    filter: hue-rotate(360deg);
+  }
+}
